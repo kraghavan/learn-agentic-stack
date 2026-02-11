@@ -1,6 +1,6 @@
 # 🎯 Agentic AI Learning Pathway
 
-> **Personal Development Plan for Karthik Raghavan**
+> **Personal Development Plan for any novice**
 > Transitioning from Software Engineer → AI Engineer
 > Focus: Claude Code SDK, MCP Tools, Multi-Agent Systems
 
