@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  sqlite-agent:
+    build: .
+    container_name: sqlite-agent
+    ports:
+      - "8501:8501"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    volumes:
+      # Mount data folder so DB persists outside container
+      - ./data:/app/data
+    restart: unless-stopped
+
+# Note: SQLite DB is just a file mounted from ./data/
+# No separate database service needed!
