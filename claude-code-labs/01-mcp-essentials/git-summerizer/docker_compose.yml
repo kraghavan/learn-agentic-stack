@@ -1,0 +1,17 @@
+services:
+  git-summarizer:
+    build: .
+    container_name: git-summarizer
+    ports:
+      - "8501:8501"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    volumes:
+      # Mount your repos directory so the app can access git repos
+      # Change this path to where your git repos live
+      - ~/KarthikaRepo:/repos:ro
+    restart: unless-stopped
+
+# Usage:
+# 1. Update the volume mount to point to your repos directory
+# 2. In the UI, enter paths like /repos/AI/learn-agentic-stack
