@@ -1,0 +1,12 @@
+services:
+  markdown-notes:
+    build: .
+    container_name: markdown-notes
+    ports:
+      - "8502:8502"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    volumes:
+      # Mount notes folder so notes persist outside container
+      - ./notes:/app/notes
+    restart: unless-stopped

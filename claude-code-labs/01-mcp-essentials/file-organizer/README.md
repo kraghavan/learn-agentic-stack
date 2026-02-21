@@ -60,7 +60,7 @@ cd ..
 streamlit run app/file_organizer.py
 ```
 
-Open http://localhost:8501 in your browser.
+Open http://localhost:8502 in your browser.
 
 ## Usage
 

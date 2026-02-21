@@ -1,0 +1,17 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Notes (optional - uncomment if you don't want to track notes)
+# notes/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
