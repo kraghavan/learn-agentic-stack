@@ -1,0 +1,128 @@
+{
+  "name": "bookmarks-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for managing browser bookmarks across Chrome, Firefox, and Safari",
+  "tools": [
+    {
+      "name": "list_bookmarks",
+      "description": "List all bookmarks from specified browser(s). Returns bookmark titles, URLs, and folders.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "browser": {
+            "type": "string",
+            "enum": ["chrome", "firefox", "safari", "all"],
+            "description": "Which browser to read bookmarks from",
+            "default": "all"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximum number of bookmarks to return",
+            "default": 50
+          }
+        }
+      }
+    },
+    {
+      "name": "search_bookmarks",
+      "description": "Search bookmarks by title or URL across browser(s).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query to find in bookmark titles or URLs"
+          },
+          "browser": {
+            "type": "string",
+            "enum": ["chrome", "firefox", "safari", "all"],
+            "description": "Which browser to search",
+            "default": "all"
+          },
+          "search_titles": {
+            "type": "boolean",
+            "description": "Search in bookmark titles",
+            "default": true
+          },
+          "search_urls": {
+            "type": "boolean",
+            "description": "Search in bookmark URLs",
+            "default": true
+          }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "list_folders",
+      "description": "List all bookmark folders from specified browser(s).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "browser": {
+            "type": "string",
+            "enum": ["chrome", "firefox", "safari", "all"],
+            "description": "Which browser to read folders from",
+            "default": "all"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_bookmarks_by_folder",
+      "description": "Get all bookmarks in a specific folder.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "folder": {
+            "type": "string",
+            "description": "Folder path to filter by"
+          },
+          "browser": {
+            "type": "string",
+            "enum": ["chrome", "firefox", "safari", "all"],
+            "description": "Which browser to read from",
+            "default": "all"
+          }
+        },
+        "required": ["folder"]
+      }
+    },
+    {
+      "name": "export_bookmarks",
+      "description": "Export bookmarks to various formats (JSON, HTML, or Markdown).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": ["json", "html", "markdown"],
+            "description": "Export format",
+            "default": "json"
+          },
+          "browser": {
+            "type": "string",
+            "enum": ["chrome", "firefox", "safari", "all"],
+            "description": "Which browser to export from",
+            "default": "all"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_bookmark_stats",
+      "description": "Get statistics about bookmarks (count by browser, folder distribution, etc.).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "browser": {
+            "type": "string",
+            "enum": ["chrome", "firefox", "safari", "all"],
+            "description": "Which browser to analyze",
+            "default": "all"
+          }
+        }
+      }
+    }
+  ]
+}
