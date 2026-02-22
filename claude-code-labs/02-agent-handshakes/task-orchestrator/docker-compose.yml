@@ -1,0 +1,9 @@
+services:
+  task-orchestrator:
+    build: .
+    container_name: task-orchestrator
+    ports:
+      - "8501:8501"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    restart: unless-stopped
