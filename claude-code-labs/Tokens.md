@@ -1,4 +1,4 @@
-# Understanding Tokens in Agent-Forge Requests
+# Understanding Tokens in Your Requests
 
 ## What is a Token?
 
