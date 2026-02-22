@@ -1,0 +1,19 @@
+services:
+  knowledge-base:
+    build: .
+    container_name: personal-kb
+    ports:
+      - "8501:8501"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - KB_PATH=/app/kb_data
+    volumes:
+      # Persist knowledge base data
+      - kb_data:/app/kb_data
+      # Optional: mount local documents folder
+      # - ./documents:/app/documents:ro
+    restart: unless-stopped
+
+volumes:
+  kb_data:
+    name: personal_kb_data
