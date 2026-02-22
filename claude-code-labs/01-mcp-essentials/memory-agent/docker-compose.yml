@@ -1,0 +1,33 @@
+services:
+  # ChromaDB - Vector Database
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: chromadb
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      - IS_PERSISTENT=TRUE
+      - ANONYMIZED_TELEMETRY=FALSE
+    # NOTE: No healthcheck - ChromaDB image lacks curl/wget
+    restart: unless-stopped
+
+  # Memory Agent App
+  memory-agent:
+    build: .
+    container_name: memory-agent
+    ports:
+      - "8501:8501"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - CHROMA_HOST=chromadb
+      - CHROMA_PORT=8000
+    depends_on:
+      chromadb:
+        condition: service_started  # NOT service_healthy!
+    restart: unless-stopped
+
+volumes:
+  chroma_data:
+    driver: local
