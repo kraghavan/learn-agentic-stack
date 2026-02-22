@@ -305,6 +305,7 @@ stateDiagram-v2
 ```mermaid
 flowchart LR
     subgraph Chat_Op["💬 Chat Operation ~$0.012"]
+    
         C1["System Prompt\n~300 tokens"]
         C2["Retrieved Context\n~1000 tokens"]
         C3["User Query\n~50 tokens"]
@@ -312,6 +313,7 @@ flowchart LR
     end
 
     subgraph Graph_Op["🕸️ Graph Extraction ~$0.014"]
+
         G1["Extraction Prompt\n~500 tokens"]
         G2["Document Content\n~1500 tokens"]
         G3["JSON Output\n~500 tokens"]
