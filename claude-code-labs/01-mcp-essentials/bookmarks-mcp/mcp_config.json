@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "bookmarks": {
+      "command": "python",
+      "args": ["server.py"],
+      "cwd": "/path/to/bookmarks-mcp"
+    }
+  }
+}

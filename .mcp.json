@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "bookmarks": {
+      "command": "python",
+      "args": ["server.py"],
+      "cwd": "./claude-code-labs/01-mcp-essentials/bookmarks-mcp"
+    }
+  }
+}
