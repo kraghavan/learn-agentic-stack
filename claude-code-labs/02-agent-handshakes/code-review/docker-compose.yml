@@ -1,0 +1,9 @@
+services:
+  code-review:
+    build: .
+    container_name: code-review-pipeline
+    ports:
+      - "8501:8501"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    restart: unless-stopped
