@@ -1,0 +1,9 @@
+services:
+  debate-agents:
+    build: .
+    container_name: debate-agents
+    ports:
+      - "8501:8501"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    restart: unless-stopped
