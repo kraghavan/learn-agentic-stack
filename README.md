@@ -25,7 +25,7 @@ This repository is a structured pathway for software engineers to master the tra
 **Focus:** Local-first development and MCP tool-use.
 * **01-mcp-essentials:** Building custom servers for local filesystem and SQLite access.
 * **02-agent-handshakes:** Implementing A2A (Agent-to-Agent) communication patterns.
-* **03-production-apps:** Using agents to autonomously generate React/Streamlit interfaces.
+* *03-03-agentic-workhorses:* Using agents to autonomously generate React/Streamlit interfaces.
 
 ### ☁️ `google-sdk-labs/`
 **Focus:** Enterprise integration using Python SDK and GCP.
@@ -56,7 +56,7 @@ learn-agentic-stack/
 ├── 🛠️ claude-code-labs/       # FOLDER 1: Local-First & Multi-Agent Logic
 │   ├── 01-mcp-essentials/     # Building custom MCP servers (Filesystem, SQLite)
 │   ├── 02-agent-handshakes/   # Examples of A2A (Agent-to-Agent) communication
-│   ├── 03-production-apps/     # Claude creating React/Streamlit UIs for agents
+│   ├── 03-agentic-workhorses/     # Claude creating React/Streamlit UIs for agents
 │   └── .mcp-config.json       # Project-specific MCP tool definitions
 │
 ├── ☁️ google-sdk-labs/         # FOLDER 2: GCP & Enterprise Integration
@@ -80,7 +80,7 @@ learn-agentic-stack/
 Once you've saved the `README.md`, you can run this command in your terminal to create the entire folder structure we discussed:
 
 ```bash
-mkdir -p claude-code-labs/{01-mcp-essentials,02-agent-handshakes,03-production-apps} \
+mkdir -p claude-code-labs/{01-mcp-essentials,02-agent-handshakes,03-agentic-workhorses} \
          google-sdk-labs/{01-vertex-foundations,02-rag-storage,03-cloud-ops-bot} \
          shared-assets/{prompts,schemas,data} \
          scripts .claude
