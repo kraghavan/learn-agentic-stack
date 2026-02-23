@@ -1,0 +1,15 @@
+# Core
+streamlit>=1.30.0
+anthropic>=0.40.0
+
+# Vector database
+chromadb>=0.4.0
+
+# Document processing
+PyMuPDF>=1.23.0       # PDF extraction
+markdown>=3.5.0        # Markdown parsing
+beautifulsoup4>=4.12.0 # HTML parsing
+lxml>=5.0.0            # HTML parser backend
+
+# Data handling
+pandas>=2.0.0

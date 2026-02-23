@@ -1,0 +1,13 @@
+services:
+  meeting-pipeline:
+    build: .
+    container_name: meeting-pipeline
+    ports:
+      - "8501:8501"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}  # Optional for Whisper
+    volumes:
+      # Mount for audio file uploads (optional)
+      - ./uploads:/app/uploads
+    restart: unless-stopped

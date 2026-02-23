@@ -575,7 +575,7 @@ Audio → [Transcribe] → [Summarize] → [Extract Actions] → [Create Tickets
 **Architecture:**
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    Control Plane UI                      │
+│                    Control Plane UI                     │
 └─────────────────────────┬───────────────────────────────┘
                           │
           ┌───────────────┴───────────────┐
@@ -618,7 +618,6 @@ Audio → [Transcribe] → [Summarize] → [Extract Actions] → [Create Tickets
 - [ ] Export as standalone agent
 - [ ] Full React UI: domain wizard, example editor, training view, deploy
 
-**This is your capstone project!**
 
 ---
 
@@ -626,43 +625,43 @@ Audio → [Transcribe] → [Summarize] → [Extract Actions] → [Create Tickets
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                        MONTH 1                                   │
+│                        MONTH 1                                  │
 ├─────────────────────────────────────────────────────────────────┤
 │ Week 1-2: TIER 1 (Projects 1.1 - 1.4)                           │
-│           Foundation projects, basic MCP usage                   │
-│                                                                  │
+│           Foundation projects, basic MCP usage                  │
+│                                                                 │
 │ Week 3-4: TIER 2 (Projects 2.1 - 2.2)                           │
-│           Build your first custom MCP servers                    │
+│           Build your first custom MCP servers                   │
 └─────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────┐
-│                        MONTH 2                                   │
+│                        MONTH 2                                  │
 ├─────────────────────────────────────────────────────────────────┤
 │ Week 5-6: TIER 2 (Projects 2.3 - 2.4)                           │
-│           Memory systems and observability                       │
-│                                                                  │
+│           Memory systems and observability                      │
+│                                                                 │
 │ Week 7-8: TIER 3 (Projects 3.1 - 3.2)                           │
-│           First multi-agent systems                              │
+│           First multi-agent systems                             │
 └─────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────┐
-│                        MONTH 3                                   │
+│                        MONTH 3                                  │
 ├─────────────────────────────────────────────────────────────────┤
 │ Week 9-10: TIER 3 (Projects 3.3 - 3.4)                          │
-│            Advanced multi-agent patterns                         │
-│                                                                  │
+│            Advanced multi-agent patterns                        │
+│                                                                 │
 │ Week 11-12: TIER 4 (Projects 4.1 - 4.2)                         │
-│             Full applications                                    │
+│             Full applications                                   │
 └─────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────┐
-│                        MONTH 4+                                  │
+│                        MONTH 4+                                 │
 ├─────────────────────────────────────────────────────────────────┤
 │ Week 13-14: TIER 4 (Projects 4.3 - 4.4)                         │
-│             Complete full applications                           │
-│                                                                  │
+│             Complete full applications                          │
+│                                                                 │
 │ Week 15+: TIER 5 (Projects 5.1 - 5.4)                           │
-│           Advanced patterns + Capstone                           │
+│           Advanced patterns                                     │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -728,15 +727,15 @@ Cloud Run) is introduced only in Project 5.3+.
 
 ### TIER 4: Full Applications
 - [ ] 4.1 Personal Knowledge Base
-- [ ] 4.2 Dev Environment Agent
+- [ ] 4.2 Dev Environment Agent (**Self Projects**)
 - [ ] 4.3 Meeting Notes → Action Items Pipeline
-- [ ] 4.4 Local SRE Bot
+- [ ] 4.4 Local SRE Bot (**Self Projects**)
 
 ### TIER 5: Advanced Patterns
-- [ ] 5.1 Self-Improving Agent
-- [ ] 5.2 Agent Evaluation Framework
+- [ ] 5.1 Self-Improving Agent (**Self Projects**)
+- [ ] 5.2 Agent Evaluation Framework (**Self Projects**)
 - [ ] 5.3 Federated Multi-Agent System
-- [ ] 5.4 Domain-Specific Agent Trainer ⭐ CAPSTONE
+- [ ] 5.4 Domain-Specific Agent Trainer (**Self Projects**)
 
 ---
 
@@ -760,9 +759,8 @@ By the end of this pathway, you will be able to:
 - [MCP Specification](https://modelcontextprotocol.io/)
 - [Vertex AI Docs](https://cloud.google.com/vertex-ai/docs)
 
-### Your Projects
-- [multi-agent-vector-ai](https://github.com/kraghavan/agent-force) - Reference implementation
-- [learn-agentic-stack](https://github.com/kraghavan/learn-agentic-stack) - This learning repo
+### Self Project
+We urge you to come up with ways to implement the projects marked as "(**Self Projects**)". The general roadmap and learning outcomes have been shared above. 
 
 ---
 
