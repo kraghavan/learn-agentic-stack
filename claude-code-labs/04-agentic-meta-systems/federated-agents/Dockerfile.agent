@@ -1,0 +1,21 @@
+# Agent Dockerfile
+# Runs Claude, ChatGPT, or Gemini agent
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy agent code
+COPY message_schema.py .
+COPY message_queue.py .
+COPY agents.py .
+
+# Default to Claude agent (override with environment variable)
+ENV AGENT_TYPE=local_claude
+
+# Run agent
+CMD ["sh", "-c", "python agents.py $AGENT_TYPE"]

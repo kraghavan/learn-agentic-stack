@@ -1,0 +1,98 @@
+# Federated Multi-Agent System - Docker Compose
+# 
+# Usage:
+#   docker-compose up --build
+#
+# Access:
+#   - Control Plane UI: http://localhost:8501
+#   - RabbitMQ Management: http://localhost:15672 (guest/guest)
+
+services:
+  # ============== MESSAGE BROKER ==============
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: fed-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # ============== CONTROL PLANE UI ==============
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.ui
+    container_name: fed-ui
+    ports:
+      - "8501:8501"
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USER=guest
+      - RABBITMQ_PASS=guest
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ============== LOCAL AGENT: CLAUDE ==============
+  agent-claude:
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
+    container_name: fed-agent-claude
+    environment:
+      - AGENT_TYPE=local_claude
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ============== LOCAL AGENT: CHATGPT ==============
+  agent-openai:
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
+    container_name: fed-agent-openai
+    environment:
+      - AGENT_TYPE=local_openai
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ============== CLOUD AGENT: GEMINI ==============
+  agent-gemini:
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
+    container_name: fed-agent-gemini
+    environment:
+      - AGENT_TYPE=cloud_gemini
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  rabbitmq_data:
+    name: fed_rabbitmq_data
