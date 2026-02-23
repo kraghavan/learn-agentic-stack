@@ -3,9 +3,14 @@
 > **Project 5.3** from the Agentic AI Learning Pathway
 > Local + Cloud agents working together via RabbitMQ
 
-## Overview
+# 🌐 Project 5.3: Federated Multi-Agent System
 
-A federated system where multiple AI agents (Claude, ChatGPT, Gemini) collaborate through a message queue. Each agent specializes in different tasks.
+> **Level 5: Meta-Systems** | Part of the [learn-agentic-stack](https://github.com/kraghavan/learn-agentic-stack)
+> A Hybrid "Local + Cloud" architecture where specialized agents collaborate via a distributed message queue.
+
+## 🏗️ Hybrid Architecture
+
+This project implements a true federated system. Workloads are strategically split between your **Mac Mini (Edge)** for local context and code execution, and **Google Cloud (Vertex AI)** for heavy-duty analysis and research.
 
 ## Architecture
 
@@ -143,19 +148,26 @@ docker-compose up --build
 
 ---
 
-## ⚠️ GCP Cleanup (IMPORTANT!)
+## ⚠️ GCP Setup/Cleanup (IMPORTANT!)
 
-If you deployed to Google Cloud, **clean up to avoid charges:**
+### Set your project
+gcloud config set project [YOUR_PROJECT_ID]
+
+#### Deploy Vertex Agent to Cloud Run
+gcloud run deploy vertex-agent \
+  --image gcr.io/[YOUR_PROJECT_ID]/vertex-agent \
+  --region us-central1 \
+  --allow-unauthenticated
 
 ### Delete Resources
+If you deployed to Google Cloud, **clean up to avoid charges:**
 
 ```bash
 # Delete Cloud Run service
 gcloud run services delete gemini-agent --region=us-central1 --quiet
 
 # Delete container images  
-gcloud artifacts docker images delete \
-    us-central1-docker.pkg.dev/PROJECT/agents/gemini-agent --quiet
+gcloud artifacts docker images delete us-central1-docker.pkg.dev/[PROJECT]/agents/vertex-agent
 
 # NUCLEAR: Delete entire project
 gcloud projects delete PROJECT_ID
